@@ -13,6 +13,7 @@ export const getMovieDetails = async (req, res) => {
     }
 
     const omdbKey = process.env.OMDB_API_KEY;
+    
     if (!omdbKey) {
       return res.status(500).json({ message: 'OMDb API key not configured' });
     }
@@ -111,7 +112,7 @@ Provide a comprehensive JSON response with EXACTLY this structure (no markdown, 
 
     // Call Gemini 2.0 Flash API
     const response = await axios.post(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${geminiKey}`,
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-pro-preview:generateContent?key=${geminiKey}`,
       {
         contents: [{ parts: [{ text: prompt }] }],
         generationConfig: {
