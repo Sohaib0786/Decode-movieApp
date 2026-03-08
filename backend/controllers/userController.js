@@ -1,6 +1,7 @@
 import User from '../models/User.js';
 
 export const addFavorite = async (req, res) => {
+  
   try {
     const { imdbId, title, poster, year, rating } = req.body;
     const user = await User.findById(req.user._id);
